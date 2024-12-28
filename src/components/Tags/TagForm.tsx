@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { TagInput } from './TagInput';
 import { TagList } from './TagList';
-import { useTagState } from './useTagState';
+import { useTagContext } from '../../contexts/TagContext';
 
 export function TagForm() {
-const {tags, addTag,removeTag} = useTagState();
+const {tags, addTag} = useTagContext();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -22,7 +22,7 @@ const {tags, addTag,removeTag} = useTagState();
 			<form autoComplete="off" onSubmit={handleSubmit}>
 				<TagInput />
 			</form>
-			<TagList tags={tags} onRemove={removeTag} />
+			<TagList />
 		</div>
 	)
 }

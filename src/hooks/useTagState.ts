@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useReducer } from 'react';
-import { tagReducer, TagState, TagActions } from './reducer';
+import { tagReducer, TagState, TagActions } from '../reducers/tagReducer';
+import { Tag } from '../types';
 
 const initialState: TagState = { tags: [] };
 
-type Tag = string;
 export const useTagState = () => {
 	const [state, dispatch] = useReducer(tagReducer, initialState);
 
@@ -16,6 +16,7 @@ export const useTagState = () => {
 	}, []);
 
 	const tags = useMemo(() => state.tags, [state.tags]);
+
 	return {
 		tags,
 		addTag,

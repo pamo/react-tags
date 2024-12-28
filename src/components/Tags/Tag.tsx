@@ -1,18 +1,19 @@
 import React from 'react';
+import { useTagContext } from '../../contexts/TagContext';
 
-interface TagProps {
+interface TagChipProps {
 	tag: string;
-	onRemove: (tag: string) => void;
 }
 
-export const TagChip: React.FC<TagProps> = ({ tag, onRemove }) => {
+export function TagChip({ tag }: TagChipProps) {
+	const { removeTag } = useTagContext();
 	return (
 		<div className="bg-blue-500 text-white px-3 py-1 rounded-full flex items-center">
 			<span>{tag}</span>
 			<button
 				type="button"
 				className="ml-2 text-white"
-				onClick={() => onRemove(tag)}
+				onClick={() => removeTag(tag)}
 			>
 				&times;
 			</button>
