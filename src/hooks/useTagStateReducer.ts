@@ -4,7 +4,7 @@ import { Tag } from '../types';
 
 const initialState: TagState = { tags: [] };
 
-export const useTagState = () => {
+export const useTagStateReducer = () => {
 	const [state, dispatch] = useReducer(tagReducer, initialState);
 
 	const addTag = useCallback((tag: Tag) => {

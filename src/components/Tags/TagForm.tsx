@@ -1,10 +1,11 @@
 import React from 'react';
 import { TagInput } from './TagInput';
 import { TagList } from './TagList';
-import { useTagContext } from '../../contexts/TagContext';
+import { useTagState, useTagDispatch } from '../../contexts/TagContext';
 
 export function TagForm() {
-const {tags, addTag} = useTagContext();
+	const tags = useTagState();
+	const { addTag } = useTagDispatch();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
