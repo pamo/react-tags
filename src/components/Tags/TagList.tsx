@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagChip } from './Tag';
+import { TagChip } from './TagChip';
 import { useTagState } from '../../contexts/TagContext';
 
 export function TagList () {
